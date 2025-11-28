@@ -9,6 +9,6 @@ terraform {
 provider "aws" {
   region  = "us-west-2"
     assume_role {
-      arn = ""
+      arn = "{{ secrets.TERRAFORM_ARN }}"
     }
 }
