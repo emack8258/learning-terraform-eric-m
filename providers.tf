@@ -1,3 +1,6 @@
+variable = "assume_role_arn" {
+  type = string
+}
 terraform {
   required_providers {
     aws = {
@@ -8,7 +11,7 @@ terraform {
 
 provider "aws" {
   region  = "us-west-2"
-    assume_role {
-      arn = "{{ secrets.TERRAFORM_ARN }}"
+    role_arn     = var.assume_role_arn
+    session_name = "github-terraform"
     }
 }
